@@ -3,11 +3,11 @@ import streamlit as st
 
 def get_connection():
     return psycopg2.connect(
-        host="db.rjocfajczvevbfyoupjw.supabase.co",
+        host="aws-1-sa-east-1.pooler.supabase.com",
         database="postgres",
         user="postgres",
-        password=st.secrets["DB_PASSWORD"],  # Vamos ler apenas a senha dos segredos
-        port="5432"
+        password=st.secrets["DB_PASSWORD"],
+        port="6543"
     )
 
 def init_db():
