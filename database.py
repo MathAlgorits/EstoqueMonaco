@@ -1,10 +1,15 @@
-import streamlit as st
+import psycopg2
 
 def get_connection():
-    # O próprio Streamlit gerencia a conexão com o banco de dados de forma nativa e segura
-    conn = st.connection("supabase", type="sql")
-    # Retorna a conexão bruta (raw) para que o restante do seu código (interface.py) continue funcionando sem mudar nada!
-    return conn.driver.connect()
+    # Passamos os teus dados reais diretamente, sem depender de travas do secrets do Streamlit
+    return psycopg2.connect(
+        host="aws-1-sa-east-1.pooler.supabase.com",
+        database="postgres",
+        user="postgres.rjocfajczvevbfyoupjw",
+        password="Monacodb2026!",
+        port=5432,
+        sslmode="require"
+    )
 
 def init_db():
     conn = get_connection()
