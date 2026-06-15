@@ -5,9 +5,9 @@ def get_connection():
     return psycopg2.connect(
         host="aws-1-sa-east-1.pooler.supabase.com",
         database="postgres",
-        user="postgres.rjocfajczvevbfyoupjw",  # Corrigido: 'czvev' em vez de 'zeve'
+        user="postgres.rjocfajczvevbfyoupjw",
         password=st.secrets["DB_PASSWORD"],
-        port=5432,
+        port=6543,                             # Alterado para 6543 (Porta oficial do Pooler)
         sslmode="require"
     )
 
